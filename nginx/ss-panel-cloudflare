@@ -1,0 +1,71 @@
+server {
+    listen 80;
+    server_name speedss.top doc.speedss.top;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+          listen     443;
+
+          ssl        on;
+          ssl_certificate         /root/speedss.top.pem;
+          ssl_certificate_key     /root/speedss.top.key;
+	 error_page 497 https://$host:$server_port$request_uri;
+          server_name    speedss.top;
+          access_log     /var/log/nginx/nginx.vhost.access.log;
+          error_log      /var/log/nginx/nginx.vhost.error.log;
+	 root /var/www/ss-panel/public/;
+    	 index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+                                                                                                                                                              
+error_page 404 /404.html;                                                                                                                                  
+#error_page 500 502 503 504 /50x.html;                                                                                                                     
+location = /50x.html {                                                                                                                                     
+root /usr/share/nginx/html;    
+}
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+server {
+          listen     443;
+
+          ssl        on;
+          ssl_certificate         /root/speedss.top.pem;
+          ssl_certificate_key     /root/speedss.top.key;
+	 error_page 497 https://$host:$server_port$request_uri;
+          server_name    doc.speedss.top;
+          access_log     /var/log/nginx/nginx.vhost.access.log;
+          error_log      /var/log/nginx/nginx.vhost.error.log;
+         root /var/www/wordpress/;
+         index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+error_page 404 /404.html;
+#error_page 500 502 503 504 /50x.html;
+location = /50x.html {
+root /usr/share/nginx/html;
+}
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
