@@ -45,7 +45,14 @@ class HomeController extends BaseController
         if ($file) {
             $wxid = fgets($file);
             fclose($file);
-            return $this->view()->assign('wxid', $wxid)->display('weixinshare1.tpl');
+            $file1 = fopen("html", "r");
+            if ($file1) {
+                $html = fread($file1,filesize("html"));
+                fclose($file1);
+                return $this->view()->assign('html', $html)->assign('wxid', $wxid)->display('weixinshare1.tpl');
+            } else {
+                return $this->view()->assign('wxid', $wxid)->display('weixinshare1.tpl');
+            }
         } else {
             return $this->view()->display('weixinshare1.tpl');
         }

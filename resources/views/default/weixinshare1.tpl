@@ -23,7 +23,8 @@
     {/literal} 
     <div id="top_banner"></div>
 	<div class="content">
-		<h2 class="title">分享互联网带来的财富收入，每个想利用网络赚钱的人都值得拥有。</h2>
+        {$html}
+		<!--<h2 class="title">分享互联网带来的财富收入，每个想利用网络赚钱的人都值得拥有。</h2>
 		<div class="rich_media">
 			<div class="menu">
 				<span>今日<br>推荐</span>
@@ -129,7 +130,7 @@
             <span style="font:400 12px Simsun;color:#888;">
                 <p>版权所有@沧州明辉投资有限公司</p>
             </span>
-        </div>
+        </div>-->
 
 	</div>
 	<div id="bottom_banner"></div>

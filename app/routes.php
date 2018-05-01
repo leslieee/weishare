@@ -139,6 +139,7 @@ $app->group('/admin', function () {
     // content
     $this->post('/content/edit', 'App\Controllers\Admin\UserController:contentEditPost');
     $this->post('/contentupload', 'App\Controllers\Admin\UserController:contentUpload');
+    $this->post('/htmlchange', 'App\Controllers\Admin\UserController:htmlChange');
 
     // Test
     $this->get('/test/sendmail', 'App\Controllers\Admin\TestController:sendMail');

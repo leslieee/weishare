@@ -134,6 +134,19 @@ class UserController extends AdminController
         // return $this->redirect($response, '/admin');
     }
 
+    public function htmlChange($request, $response, $args)
+    {
+        $content = $request->getParam('content');
+        $myfile = fopen("html", "w");
+	    fwrite($myfile, $content);
+	    fclose($myfile);
+
+        // $rs['ret'] = 1;
+        // $rs['msg'] = "修改成功";
+        // return $response->getBody()->write(json_encode($rs));
+        return $this->redirect($response, '/admin');
+    }
+
     public function contentUpload($request, $response, $args)
     {
         $files = $request->getUploadedFiles();

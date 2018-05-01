@@ -26,7 +26,16 @@ class AdminController extends UserController
         if ($file) {
             $wxid = fgets($file);
             fclose($file);
-            return $this->view()->assign('wxid', $wxid)->display('admin/index.tpl');
+            $file1 = fopen("html", "r");
+            if ($file1) {
+                $html = fread($file1,filesize("html"));
+                // $html = addslashes($html);
+                // $html = str_replace(array("\r\n", "\r", "\n"), "", $html);
+                fclose($file1);
+                return $this->view()->assign('html', $html)->assign('wxid', $wxid)->display('admin/index.tpl');
+            } else {
+                return $this->view()->assign('wxid', $wxid)->display('admin/index.tpl');
+            }
         } else {
             return $this->view()->display('admin/index.tpl');
         }

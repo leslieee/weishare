@@ -1,4 +1,5 @@
 {include file='admin/main.tpl'}
+<script type="text/javascript" src="/assets/public/tinymce/tinymce.min.js"></script>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -32,7 +33,7 @@
         </div>
         <div class="row">
             <!-- left column -->
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!-- general form elements -->
                 <div class="box box-primary">
 
@@ -50,8 +51,9 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">模板展示微信号</label>
 
-                                <div class="col-sm-9">
-                                    <input value="{$wxid}" class="form-control" placeholder="微信号" id="wxid">
+                                <div class="col-sm-3">
+                                    <input value="{$wxid}" class="form-control" placeholder="微信号" id="wxid" width="200">
+                                    <button type="submit" id="pwd-update" class="btn btn-primary">修改</button>
                                 </div>
                             </div>
 
@@ -61,7 +63,7 @@
                                 <div class="col-sm-9">
                                     <form method="post" action="/admin/contentupload" enctype="multipart/form-data">
                                         <input type="file" name="picture">
-                                        <button type="submit"> 提交 </button>
+                                        <button type="submit" class="btn btn-primary"> 提交 </button>
                                     </form>
                                 </div>
                             </div>
@@ -69,19 +71,23 @@
                                 <label class="col-sm-3 control-label">当前二维码</label>
 
                                 <div class="col-sm-9">
-                                    <img src="0.png" width="100" height="100">
+                                    <img src="/0.png" width="100" height="100">
                                 </div>
                             </div>
-
-
-
                         </div>
+                        <p>模板内容只能替换文字,修改文字颜色,不能整行删除</p>
+                        <p>模板内的微信号需要单独替换</p>
+                        <p>插入图片需要先到<a href="/upload">图片上传</a>,上传成功右键到文件名有复制链接地址选项,再在编辑框插入图片,第一个选项输入复制的链接地址还有第三个有大小控制</p>
+                        <form method="post" action='/admin/htmlchange'>
+                            <textarea rows="15" name='content'></textarea>
+                            <input type='submit' class="btn btn-primary" value='保存' />
+                        </form>
                     </div>
                     <!-- /.box-body -->
 
-                    <div class="box-footer">
+                    <!--<div class="box-footer">
                         <button type="submit" id="pwd-update" class="btn btn-primary">修改</button>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>
@@ -126,6 +132,34 @@
         })
     })
 
+</script>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    theme: "modern",
+    plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    toolbar2: "print preview media | forecolor backcolor emoticons",
+    image_advtab: true,
+    templates: [
+        {literal}
+        {title: 'Test template 1', content: 'Test 1'},
+        {title: 'Test template 2', content: 'Test 2'}
+        {/literal}
+    ]
+ });
+// tinymce.activeEditor.getContent();
+// tinyMCE.activeEditor.setContent("需要设置的编辑器内容");
+function bl(){
+       tinyMCE.activeEditor.setContent(`{$html}`);
+}
+setTimeout(bl,1000);
 </script>
 
 {include file='admin/footer.tpl'}
