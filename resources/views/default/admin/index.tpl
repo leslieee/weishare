@@ -156,10 +156,13 @@ tinymce.init({
  });
 // tinymce.activeEditor.getContent();
 // tinyMCE.activeEditor.setContent("需要设置的编辑器内容");
-function bl(){
-       tinyMCE.activeEditor.setContent(`{$html}`);
-}
-setTimeout(bl,1000);
+$( document ).ready(function() {
+    tinyMCE.activeEditor.setContent(`{$html}`);
+});
+// function bl(){
+//       tinyMCE.activeEditor.setContent(`{$html}`);
+// }
+// setTimeout(bl,1000);
 </script>
 
 {include file='admin/footer.tpl'}
