@@ -79,7 +79,7 @@
                         <p>模板内的微信号需要单独替换</p>
                         <p>插入图片需要先到<a href="/upload">图片上传</a>,上传成功右键到文件名有复制链接地址选项,再在编辑框插入图片,第一个选项输入复制的链接地址还有第三个有大小控制</p>
                         <form method="post" action='/admin/htmlchange'>
-                            <textarea rows="15" name='content'></textarea>
+                            <textarea rows="25" name='content'></textarea>
                             <input type='submit' class="btn btn-primary" value='保存' />
                         </form>
                     </div>
