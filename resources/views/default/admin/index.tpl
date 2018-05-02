@@ -154,15 +154,23 @@ tinymce.init({
         {/literal}
     ]
  });
-// tinymce.activeEditor.getContent();
-// tinyMCE.activeEditor.setContent("需要设置的编辑器内容");
-$( document ).ready(function() {
-    tinyMCE.activeEditor.setContent(`{$html}`);
-});
-// function bl(){
-//       tinyMCE.activeEditor.setContent(`{$html}`);
-// }
-// setTimeout(bl,1000);
+
+function bl(){
+    if (isEmpty(tinyMCE.activeEditor)) {
+        setTimeout(bl,1000);
+    } else {
+        tinyMCE.activeEditor.setContent(`{$html}`);
+    }
+}
+setTimeout(bl,1000);
+
+function isEmpty(obj){
+    for (var name in obj){
+        return false;
+    }
+    return true;
+};
+
 </script>
 
 {include file='admin/footer.tpl'}
