@@ -1,5 +1,5 @@
 {include file='admin/main.tpl'}
-<script type="text/javascript" src="/assets/public/tinymce/tinymce.min.js"></script>
+<!--<script type="text/javascript" src="/assets/public/tinymce/tinymce.min.js"></script>-->
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -75,13 +75,13 @@
                                 </div>
                             </div>
                         </div>
-                        <p>模板内容只能替换文字,修改文字颜色,不能整行删除</p>
+                        <!--<p>模板内容只能替换文字,修改文字颜色,不能整行删除</p>
                         <p>模板内的微信号需要单独替换</p>
                         <p>插入图片需要先到<a href="/upload">图片上传</a>,上传成功右键到文件名有复制链接地址选项,再在编辑框插入图片,第一个选项输入复制的链接地址还有第三个有大小控制</p>
                         <form method="post" action='/admin/htmlchange'>
                             <textarea rows="20" name='content'></textarea>
                             <input type='submit' class="btn btn-primary" value='保存' />
-                        </form>
+                        </form>-->
                     </div>
                     <!-- /.box-body -->
 
@@ -134,7 +134,7 @@
 
 </script>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 tinymce.init({
     selector: "textarea",
     theme: "modern",
@@ -171,6 +171,6 @@ function isEmpty(obj){
     return true;
 };
 
-</script>
+</script>-->
 
 {include file='admin/footer.tpl'}

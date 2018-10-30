@@ -58,6 +58,20 @@ class HomeController extends BaseController
         }
     }
 
+    public function intro3()
+    {
+        // 读取微信id
+        $file = fopen("wxid", "r");// or exit("无法打开文件!");
+        // 读取文件每一行，直到文件结尾
+        if ($file) {
+            $wxid = fgets($file);
+            fclose($file);
+            return $this->view()->assign('wxid', $wxid)->display('weixinshare3.tpl');
+        } else {
+            return $this->view()->display('weixinshare3.tpl');
+        }
+    }
+
     public function configclient()
     {
         return $this->view()->display('configclient.tpl');
