@@ -696,7 +696,17 @@
         });
     </script>
 
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?76935af0dfa9ba85736e6c17c83025b7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
+<script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1277606003&web_id=1277606003"></script>
 
 
     <!--<div style="display:none;">

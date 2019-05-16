@@ -62,18 +62,19 @@
 
                                 <div class="col-sm-9">
                                     <form method="post" action="/admin/contentupload" enctype="multipart/form-data">
+                                        <input type="text" name="name" placeholder="要修改二维码的微信号">
                                         <input type="file" name="picture">
                                         <button type="submit" class="btn btn-primary"> 提交 </button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label class="col-sm-3 control-label">当前二维码</label>
 
                                 <div class="col-sm-9">
                                     <img src="/0.png" width="100" height="100">
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <!--<p>模板内容只能替换文字,修改文字颜色,不能整行删除</p>
                         <p>模板内的微信号需要单独替换</p>

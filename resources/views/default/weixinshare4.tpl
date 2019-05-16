@@ -9,14 +9,14 @@
     <title>10元投入月入三万以上!金鹰女神赵丽颖带你赚钱！</title>
     <!--<script src="javascript/weixin.js"></script>-->
     <script type="text/javascript">
-        var wxArr = [{ $wxid }];
+        var wxArr = [{$wxid}];
         var wx_index = Math.floor((Math.random() * wxArr.length));
         var stxlwx = wxArr[wx_index];
         var wx_ewm = "<img id='wx' src='0.png'>";
         var wx = "<img src='0.png' alt=''>";
         var weixin = wxArr[wx_index];
         var img = "0.png";
-        var wx_img = "<img src='0.png' alt=''>";
+        var wx_img = "<img src='"+stxlwx+".jpg' alt=''>";
     </script>
 
     <style type="text/css">

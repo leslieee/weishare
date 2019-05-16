@@ -149,17 +149,20 @@ class UserController extends AdminController
 
     public function contentUpload($request, $response, $args)
     {
-        $files = $request->getUploadedFiles();
+        $name = $request->getParam('name') . ".jpg";
         $uploadedFiles = $request->getUploadedFiles();
         $uploadedFile = $uploadedFiles['picture'];
         if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
             $content = $uploadedFile->getStream();
-            $file = fopen("0.png", "w");
+            $file = fopen($name, "w");
             if ($file) {
                 fwrite($file, $content);
                 fclose($file);
                 // 跳转一下
                 return $this->redirect($response, '/admin');
+                // $rs['ret'] = 1;
+                // $rs['msg'] = "修改成功";
+                // return $response->getBody()->write(json_encode($rs));
             }
         }
         // $rs['ret'] = 0;
