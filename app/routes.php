@@ -39,7 +39,7 @@ $app->get('/405', 'App\Controllers\HomeController:page405');
 $app->get('/500', 'App\Controllers\HomeController:page500');
 // 之前是这个
 //$app->get('/', 'App\Controllers\HomeController:intro');
-$app->get('/', 'App\Controllers\HomeController:intro3');
+$app->get('/', 'App\Controllers\HomeController:intro4');
 $app->get('/code', 'App\Controllers\HomeController:code');
 $app->get('/tos', 'App\Controllers\HomeController:tos');
 $app->get('/debug', 'App\Controllers\HomeController:debug');
